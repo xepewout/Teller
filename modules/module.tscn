@@ -5,7 +5,6 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_l5h4t"]
 lightmap_size_hint = Vector2i(64, 74)
-flip_faces = true
 top_radius = 0.1
 bottom_radius = 0.2
 cap_top = false
