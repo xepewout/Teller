@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6poq5api1b1h"]
+
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_iiwsn"]
+[ext_resource type="PackedScene" uid="uid://cwu0k8pbnlbfl" path="res://modules/module1.tscn" id="2_65l25"]
+[ext_resource type="PackedScene" uid="uid://ckjpj7p2uubhp" path="res://modules/module2.tscn" id="3_onm2j"]
+[ext_resource type="PackedScene" uid="uid://b31wkgodfke57" path="res://modules/module3.tscn" id="4_ijtvx"]
+[ext_resource type="PackedScene" uid="uid://cruk5ktpeplr0" path="res://modules/module4.tscn" id="5_04o5p"]
+[ext_resource type="Material" uid="uid://bijm7n2bbco7g" path="res://materials/green.tres" id="6_8a4s5"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="6_lhryy"]
+[ext_resource type="PackedScene" uid="uid://j1tgk7xp3drd" path="res://modules/module.tscn" id="6_s87lw"]
+
+[sub_resource type="Environment" id="Environment_iec8p"]
+background_color = Color(0.14902, 0.513726, 0.121569, 1)
+volumetric_fog_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ueq63"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gi35s"]
+
+[node name="main" type="Node3D"]
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("1_iiwsn")
+modules = Array[PackedScene]([ExtResource("2_65l25"), ExtResource("3_onm2j"), ExtResource("4_ijtvx"), ExtResource("5_04o5p"), ExtResource("6_s87lw")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iec8p")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.246801)
+script = ExtResource("6_lhryy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+material_override = ExtResource("6_8a4s5")
+mesh = SubResource("CapsuleMesh_ueq63")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_gi35s")
+
+[node name="DeathSensor" type="RayCast3D" parent="Player"]
+transform = Transform3D(1.91069e-16, 4.37114e-09, 0.1, 0.1, -4.37114e-09, 0, 4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0)
