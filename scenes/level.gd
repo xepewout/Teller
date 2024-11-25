@@ -1,8 +1,8 @@
 extends Node3D
 @export var modules: Array[PackedScene] = []
-var amnt = 5
+var amnt = 10
 var rng = RandomNumberGenerator.new()
-var offset = 1.5
+var offset = 1
 
 var initObs = 0
 # Called when the node enters the scene tree for the first time.
