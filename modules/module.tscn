@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://j1tgk7xp3drd"]
+[gd_scene load_steps=4 format=3 uid="uid://j1tgk7xp3drd"]
 
 [ext_resource type="Script" path="res://modules/module.gd" id="1_hx522"]
-[ext_resource type="Material" uid="uid://b84cwv5kxjjqs" path="res://player/grey.tres" id="2_ybq2a"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ggphp"]
 lightmap_size_hint = Vector2i(64, 74)
@@ -23,7 +22,6 @@ script = ExtResource("1_hx522")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00119106, 0.0586116, -0.0333102)
 mesh = SubResource("CylinderMesh_ggphp")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("2_ybq2a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00119106, 0.0586116, -0.0333102)
