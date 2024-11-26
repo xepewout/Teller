@@ -16,10 +16,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	timepassed+=delta
 	if timepassed > 10:
-		spawnObstacle(timepassed - 5)
-	if timepassed > 20:
-		timepassed = 0
-	
+		for n in amnt:
+			spawnObstacle(n*offset)
+			timepassed = 0
+		
 func spawnModule(n):
 	print(n)
 	if initObs > 5:
@@ -35,8 +35,7 @@ func spawnModule(n):
 		initObs+= 1
 
 func spawnObstacle(n):
-	#var instance = obstacles[0].instantiate()
-	#instance.position.z = n
-	#add_child(instance)
-	#print (n)
-	pass
+	var instance = obstacles[0].instantiate()
+	instance.position.z = n
+	add_child(instance)
+	print (n)
