@@ -6,5 +6,5 @@ var speed = 1
 func _process(delta: float) -> void:
 	position.z += speed*delta
 	if position.z > 2:
-		level.spawnObstacle(position.z+(level.amnt*level.offset) * -1)
+		level.spawnObstacle(3 + (level.amnt*(level.offset)) * -1)
 		queue_free()

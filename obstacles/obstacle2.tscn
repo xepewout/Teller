@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ikp58hh2a0c"]
+
+[ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_i6l4k"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_kq01c"]
+size = Vector3(1, 1, 0.1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_i6l4k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StaticBody3D/CSGCombiner3D"]
+use_collision = true
+radius = 0.1
+height = 0.001
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-09, 0.1, -4.37114e-09, 0, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, 0.0453629, -2.71384e-09, -0.0620855)
+operation = 2
+mesh = SubResource("PrismMesh_kq01c")

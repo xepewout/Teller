@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6poq5api1b1h"]
+[gd_scene load_steps=18 format=3 uid="uid://c6poq5api1b1h"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_iiwsn"]
 [ext_resource type="PackedScene" uid="uid://cwu0k8pbnlbfl" path="res://modules/module1.tscn" id="2_65l25"]
@@ -9,12 +9,14 @@
 [ext_resource type="Script" path="res://scenes/player.gd" id="6_lhryy"]
 [ext_resource type="PackedScene" uid="uid://j1tgk7xp3drd" path="res://modules/module.tscn" id="6_s87lw"]
 [ext_resource type="PackedScene" uid="uid://ddr3jxrdm660f" path="res://obstacles/obstacle.tscn" id="7_u3vcs"]
+[ext_resource type="PackedScene" uid="uid://d2ikp58hh2a0c" path="res://obstacles/obstacle2.tscn" id="8_8wock"]
 [ext_resource type="Texture2D" uid="uid://coby0wvsgiano" path="res://sprites/player/sprite_0.png" id="9_6a4wy"]
 [ext_resource type="Texture2D" uid="uid://dieg6vhoj3a5p" path="res://sprites/player/sprite_1.png" id="10_dcq6s"]
 [ext_resource type="Texture2D" uid="uid://c5iq3om0jhbrx" path="res://sprites/player/sprite_2.png" id="11_usnmg"]
 
 [sub_resource type="Environment" id="Environment_iec8p"]
-background_color = Color(0.14902, 0.513726, 0.121569, 1)
+background_mode = 1
+background_color = Color(0.502072, 0.418853, 0.21473, 1)
 volumetric_fog_enabled = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ueq63"]
@@ -43,13 +45,12 @@ animations = [{
 [node name="Level" type="Node3D" parent="."]
 script = ExtResource("1_iiwsn")
 modules = Array[PackedScene]([ExtResource("2_65l25"), ExtResource("3_onm2j"), ExtResource("4_ijtvx"), ExtResource("5_04o5p"), ExtResource("6_s87lw")])
-obstacles = Array[PackedScene]([ExtResource("7_u3vcs")])
+obstacles = Array[PackedScene]([ExtResource("7_u3vcs"), ExtResource("8_8wock")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_iec8p")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.246801)
 motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("6_lhryy")
@@ -61,11 +62,12 @@ material_override = ExtResource("6_8a4s5")
 mesh = SubResource("CapsuleMesh_ueq63")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0)
+transform = Transform3D(0.03, 0, 0, 0, -1.31134e-09, -0.03, 0, 0.03, -1.31134e-09, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_gi35s")
 
 [node name="DeathSensor" type="RayCast3D" parent="Player"]
-transform = Transform3D(1.91069e-16, 4.37114e-09, 0.1, 0.1, -4.37114e-09, 0, 4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0)
+transform = Transform3D(9.55345e-17, 2.18557e-09, 0.05, 0.05, -2.18557e-09, -1.78671e-22, 2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
+debug_shape_custom_color = Color(0.509804, 0, 0, 1)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -73,9 +75,9 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_w77wi")
 animation = &"new_animation"
 
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.246801)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
