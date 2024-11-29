@@ -16,6 +16,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timepassed+=delta
+	if timepassed > 10:
+		levelComplete()
 
 func spawnModule(n):
 	if initObs > 5:
@@ -36,3 +38,6 @@ func spawnObstacle(n):
 	var instance = obstacles[num].instantiate()
 	instance.position.z = n
 	add_child(instance)
+	
+func levelComplete():
+	print("done!")
