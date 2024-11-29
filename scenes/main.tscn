@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6poq5api1b1h"]
+[gd_scene load_steps=19 format=3 uid="uid://c6poq5api1b1h"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_iiwsn"]
 [ext_resource type="PackedScene" uid="uid://cwu0k8pbnlbfl" path="res://modules/module1.tscn" id="2_65l25"]
 [ext_resource type="PackedScene" uid="uid://ckjpj7p2uubhp" path="res://modules/module2.tscn" id="3_onm2j"]
 [ext_resource type="PackedScene" uid="uid://b31wkgodfke57" path="res://modules/module3.tscn" id="4_ijtvx"]
 [ext_resource type="PackedScene" uid="uid://cruk5ktpeplr0" path="res://modules/module4.tscn" id="5_04o5p"]
-[ext_resource type="Material" path="res://materials/green.tres" id="6_8a4s5"]
+[ext_resource type="Material" uid="uid://bijm7n2bbco7g" path="res://materials/green.tres" id="6_8a4s5"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="6_lhryy"]
 [ext_resource type="PackedScene" uid="uid://j1tgk7xp3drd" path="res://modules/module.tscn" id="6_s87lw"]
 [ext_resource type="PackedScene" uid="uid://ddr3jxrdm660f" path="res://obstacles/obstacle.tscn" id="7_u3vcs"]
@@ -40,6 +40,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vvq5v"]
+radius = 0.1
+height = 0.4
+
 [node name="main" type="Node3D"]
 
 [node name="Level" type="Node3D" parent="."]
@@ -71,12 +75,18 @@ debug_shape_custom_color = Color(0.509804, 0, 0, 1)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_w77wi")
 animation = &"new_animation"
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.246801)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.03, 0, 0, 0, -1.31134e-09, -0.03, 0, 0.03, -1.31134e-09, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_vvq5v")
+disabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)

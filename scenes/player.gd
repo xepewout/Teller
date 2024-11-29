@@ -7,6 +7,7 @@ var spacetime = 0
 @onready var death_sensor: RayCast3D = $DeathSensor
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var collision_shape_3d_2: CollisionShape3D = $CollisionShape3D2
 var invisible = false
 
 # Variables for mode switching and circular movement
@@ -20,6 +21,8 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("left_click"):
 		free_mode = !free_mode # Toggle movement mode
+		collision_shape_3d.disabled = !collision_shape_3d.disabled
+		collision_shape_3d_2.disabled = !collision_shape_3d_2.disabled
 
 	if free_mode:
 		# Free flying movement

@@ -19,6 +19,6 @@ radius = 0.1
 height = 0.001
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-09, 0.1, -4.37114e-09, 0, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, 0.0453629, -2.71384e-09, -0.0620855)
+transform = Transform3D(-0.00435779, 0.0498097, -2.17725e-09, 0, -2.18557e-09, -0.05, -0.0498097, -0.00435779, 1.90485e-10, 0.0440796, -3.02703e-09, -0.0692505)
 operation = 2
 mesh = SubResource("PrismMesh_kq01c")
