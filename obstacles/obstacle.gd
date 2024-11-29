@@ -7,4 +7,7 @@ func _process(delta: float) -> void:
 	position.z += speed*delta
 	if position.z > 2:
 		level.spawnObstacle(3 + (level.amnt*(level.offset)) * -1)
-		queue_free()
+		free()
+
+func free():
+	queue_free()

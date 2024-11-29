@@ -5,6 +5,7 @@ var amnt = 10
 var rng = RandomNumberGenerator.new()
 var offset = 1
 var timepassed = 0
+@export var ability = false
 
 var initObs = 0
 # Called when the node enters the scene tree for the first time.

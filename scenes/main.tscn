@@ -46,7 +46,7 @@ height = 0.4
 
 [node name="main" type="Node3D"]
 
-[node name="Level" type="Node3D" parent="."]
+[node name="LevelOne" type="Node3D" parent="."]
 script = ExtResource("1_iiwsn")
 modules = Array[PackedScene]([ExtResource("2_65l25"), ExtResource("3_onm2j"), ExtResource("4_ijtvx"), ExtResource("5_04o5p"), ExtResource("6_s87lw")])
 obstacles = Array[PackedScene]([ExtResource("7_u3vcs"), ExtResource("8_8wock")])

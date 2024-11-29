@@ -9,12 +9,16 @@ var spacetime = 0
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collision_shape_3d_2: CollisionShape3D = $CollisionShape3D2
 var invisible = false
+@onready var level: Node3D = $"../LevelOne"
 
 # Variables for mode switching and circular movement
 var free_mode = true # True for free flight, False for circular movement
 var circular_radius = .1
 var circular_angle = 0.0
 var angular_speed = 4.0 # Speed of angular movement along the circle
+
+func _ready() -> void:
+	animated_sprite_3d.play()
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector3.ZERO
@@ -39,16 +43,17 @@ func _physics_process(delta: float) -> void:
 			print(spacetime)
 			if spacetime > 3:
 				death()
-			collision_shape_3d.disabled = true
+			#collision_shape_3d.disabled = true
 			invisible = true
 			animated_sprite_3d.visible = false
-			
+			level.ability = true
 		
 		if Input.is_action_just_released("space"):
 			spacetime = 0
 			collision_shape_3d.disabled = false
 			invisible = false 
 			animated_sprite_3d.visible = true
+			level.ability = false
 		
 		# Ground Velocity
 		target_velocity.x = direction.x * movementSpeed
@@ -73,8 +78,12 @@ func _physics_process(delta: float) -> void:
 		position.z -= speed * delta
 
 
-	if (death_sensor.is_colliding() and not invisible):
-		death()
+	if (death_sensor.is_colliding()):
+		if(death_sensor.get_collider().name == "wall" and level.ability==true):
+			death_sensor.get_collider().free()
+		else:
+			death()
 
 func death():
 	get_tree().reload_current_scene()
+	print("died")
