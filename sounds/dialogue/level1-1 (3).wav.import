@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://khnjharhpnpk"
+path="res://.godot/imported/level1-1 (3).wav-0e1d635077d2a51188aed3b58f9bf359.sample"
+
+[deps]
+
+source_file="res://sounds/dialogue/level1-1 (3).wav"
+dest_files=["res://.godot/imported/level1-1 (3).wav-0e1d635077d2a51188aed3b58f9bf359.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,24 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2ikp58hh2a0c"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ikp58hh2a0c"]
 
 [ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_i6l4k"]
+[ext_resource type="Script" path="res://obstacles/static_body_3d.gd" id="2_6kv4l"]
+[ext_resource type="ArrayMesh" uid="uid://ckqvxvwigmtmw" path="res://models/obstacle2.obj" id="3_eegyn"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_kq01c"]
-size = Vector3(1, 1, 0.1)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wp4ub"]
+data = PackedVector3Array(0, 0, -0.0005, 0.0778, -0.0778, -0.0005, 0.11, 0, -0.0005, 0, 0, -0.0005, 0.11, 0, -0.0005, 0.0778, -0.0778, -0.0005, 0, 0, -0.0005, 0, -0.11, -0.0005, 0.0778, -0.0778, -0.0005, 0, 0, -0.0005, 0.0778, -0.0778, -0.0005, 0, -0.11, -0.0005, 0, 0, -0.0005, -0.0778, -0.0778, -0.0005, 0, -0.11, -0.0005, 0, 0, -0.0005, 0, -0.11, -0.0005, -0.0778, -0.0778, -0.0005, 0, 0, -0.0005, -0.11, 0, -0.0005, -0.0778, -0.0778, -0.0005, 0, 0, -0.0005, -0.0778, -0.0778, -0.0005, -0.11, 0, -0.0005, 0, 0, -0.0005, -0.0778, 0.0778, -0.0005, -0.11, 0, -0.0005, 0, 0, -0.0005, -0.11, 0, -0.0005, -0.0778, 0.0778, -0.0005, 0, 0, -0.0005, 0, 0.11, -0.0005, -0.0778, 0.0778, -0.0005, 0, 0, -0.0005, -0.0778, 0.0778, -0.0005, 0, 0.11, -0.0005, 0.058, 0.086, -0.0005, 0.0516, 0.082, -0.0005, 0.0778, 0.0778, -0.0005, 0.0516, 0.082, -0.0005, 0, 0, -0.0005, 0.0778, 0.0778, -0.0005, 0.023, 0.0644, -0.0005, 0, 0.11, -0.0005, 0, 0, -0.0005, 0.023, 0.0644, -0.0005, 0, 0, -0.0005, 0.0516, 0.082, -0.0005, 0.0204, 0.0943, -0.0005, 0, 0.11, -0.0005, 0.023, 0.0644, -0.0005, 0, 0.11, -0.0005, 0.0204, 0.0943, -0.0005, 0.0198, 0.1018, -0.0005, 0.0516, 0.082, -0.0005, 0.058, 0.086, -0.0005, 0.0778, 0.0778, -0.0005, 0.0516, 0.082, -0.0005, 0.0778, 0.0778, -0.0005, 0, 0, -0.0005, 0.023, 0.0644, -0.0005, 0, 0, -0.0005, 0, 0.11, -0.0005, 0.023, 0.0644, -0.0005, 0.0516, 0.082, -0.0005, 0, 0, -0.0005, 0.0204, 0.0943, -0.0005, 0.023, 0.0644, -0.0005, 0, 0.11, -0.0005, 0, 0.11, -0.0005, 0.0198, 0.1018, -0.0005, 0.0204, 0.0943, -0.0005, 0, 0, -0.0005, 0.11, 0, -0.0005, 0.0778, 0.0778, -0.0005, 0, 0, -0.0005, 0.0778, 0.0778, -0.0005, 0.11, 0, -0.0005)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_i6l4k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("2_6kv4l")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("3_eegyn")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StaticBody3D/CSGCombiner3D"]
-use_collision = true
-radius = 0.1
-height = 0.001
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D/CSGCombiner3D"]
-transform = Transform3D(-0.00435779, 0.0498097, -2.17725e-09, 0, -2.18557e-09, -0.05, -0.0498097, -0.00435779, 1.90485e-10, 0.0440796, -3.02703e-09, -0.0692505)
-operation = 2
-mesh = SubResource("PrismMesh_kq01c")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wp4ub")

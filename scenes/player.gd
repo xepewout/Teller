@@ -6,10 +6,9 @@ var target_velocity = Vector3.ZERO
 var spacetime = 0
 @onready var death_sensor: RayCast3D = $DeathSensor
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
-@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collision_shape_3d_2: CollisionShape3D = $CollisionShape3D2
-var invisible = false
 @onready var level: Node3D = $"../LevelOne"
+@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 
 # Variables for mode switching and circular movement
 var free_mode = true # True for free flight, False for circular movement
@@ -18,7 +17,7 @@ var circular_angle = 0.0
 var angular_speed = 4.0 # Speed of angular movement along the circle
 
 func _ready() -> void:
-	animated_sprite_3d.play()
+	pass
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector3.ZERO
@@ -27,7 +26,10 @@ func _physics_process(delta: float) -> void:
 		free_mode = !free_mode # Toggle movement mode
 		collision_shape_3d.disabled = !collision_shape_3d.disabled
 		collision_shape_3d_2.disabled = !collision_shape_3d_2.disabled
-
+		if collision_shape_3d.disabled == true:
+			mesh_instance_3d.scale = Vector3(.01,.01,.01)
+		else:
+			mesh_instance_3d.scale = Vector3(.03,.03,.03)
 	if free_mode:
 		# Free flying movement
 		if Input.is_action_pressed("move_right"):
@@ -43,17 +45,13 @@ func _physics_process(delta: float) -> void:
 			print(spacetime)
 			if spacetime > 3:
 				death()
-			#collision_shape_3d.disabled = true
-			invisible = true
-			animated_sprite_3d.visible = false
 			level.ability = true
+			mesh_instance_3d.scale = Vector3(.05,.05,.05)
 		
 		if Input.is_action_just_released("space"):
 			spacetime = 0
-			collision_shape_3d.disabled = false
-			invisible = false 
-			animated_sprite_3d.visible = true
 			level.ability = false
+			mesh_instance_3d.scale = Vector3(.03,.03,.03)
 		
 		# Ground Velocity
 		target_velocity.x = direction.x * movementSpeed
@@ -65,9 +63,9 @@ func _physics_process(delta: float) -> void:
 		position.z -= speed * delta
 	else:
 		# Circular movement logic
-		if Input.is_action_pressed("move_right"):
+		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up"):
 			circular_angle += angular_speed * delta
-		if Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_down"):
 			circular_angle -= angular_speed * delta
 		var x = circular_radius * cos(circular_angle)
 		var y = circular_radius * sin(circular_angle)
@@ -85,5 +83,4 @@ func _physics_process(delta: float) -> void:
 			death()
 
 func death():
-	get_tree().reload_current_scene()
-	print("died")
+	print(get_tree().reload_current_scene())

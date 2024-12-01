@@ -1,55 +1,181 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6poq5api1b1h"]
+[gd_scene load_steps=37 format=3 uid="uid://c6poq5api1b1h"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_iiwsn"]
-[ext_resource type="PackedScene" uid="uid://cwu0k8pbnlbfl" path="res://modules/module1.tscn" id="2_65l25"]
-[ext_resource type="PackedScene" uid="uid://ckjpj7p2uubhp" path="res://modules/module2.tscn" id="3_onm2j"]
-[ext_resource type="PackedScene" uid="uid://b31wkgodfke57" path="res://modules/module3.tscn" id="4_ijtvx"]
-[ext_resource type="PackedScene" uid="uid://cruk5ktpeplr0" path="res://modules/module4.tscn" id="5_04o5p"]
-[ext_resource type="Material" uid="uid://bijm7n2bbco7g" path="res://materials/green.tres" id="6_8a4s5"]
+[ext_resource type="PackedScene" uid="uid://pumw77mv2iav" path="res://obstacles/obstacle3.tscn" id="5_63jof"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="6_lhryy"]
+[ext_resource type="PackedScene" uid="uid://ijrktkn6mxru" path="res://obstacles/obstacle4.tscn" id="6_r0ivu"]
 [ext_resource type="PackedScene" uid="uid://j1tgk7xp3drd" path="res://modules/module.tscn" id="6_s87lw"]
+[ext_resource type="PackedScene" uid="uid://u7y35a8yknwh" path="res://obstacles/obstacle5.tscn" id="7_s6dnf"]
 [ext_resource type="PackedScene" uid="uid://ddr3jxrdm660f" path="res://obstacles/obstacle.tscn" id="7_u3vcs"]
 [ext_resource type="PackedScene" uid="uid://d2ikp58hh2a0c" path="res://obstacles/obstacle2.tscn" id="8_8wock"]
-[ext_resource type="Texture2D" uid="uid://coby0wvsgiano" path="res://sprites/player/sprite_0.png" id="9_6a4wy"]
-[ext_resource type="Texture2D" uid="uid://dieg6vhoj3a5p" path="res://sprites/player/sprite_1.png" id="10_dcq6s"]
-[ext_resource type="Texture2D" uid="uid://c5iq3om0jhbrx" path="res://sprites/player/sprite_2.png" id="11_usnmg"]
+[ext_resource type="PackedScene" uid="uid://chpvp5y6jpa7n" path="res://obstacles/obstacle6.tscn" id="8_u55i8"]
+[ext_resource type="AudioStream" uid="uid://cou8u8nimmbdh" path="res://sounds/music/11.29.24.mp3" id="9_k5mf7"]
+[ext_resource type="AudioStream" uid="uid://2g463scsntof" path="res://sounds/dialogue/final/Teller_soundsVoice1.mp3" id="9_p8843"]
+[ext_resource type="AudioStream" uid="uid://4ykerbw3tvtd" path="res://sounds/dialogue/final/Teller_soundsVoice2.mp3" id="10_ytsxm"]
+[ext_resource type="AudioStream" uid="uid://dg8rtleikgd0o" path="res://sounds/dialogue/final/Teller_soundsVoice3.mp3" id="11_gfsb6"]
+[ext_resource type="ArrayMesh" uid="uid://8uym80mdvf4a" path="res://models/Player1.obj" id="11_wuro8"]
+[ext_resource type="AudioStream" uid="uid://bc68rasupdf5p" path="res://sounds/dialogue/final/Teller_soundsVoice4.mp3" id="12_jl5kl"]
+[ext_resource type="Texture2D" uid="uid://b1yb4cvyjo0ip" path="res://models/textures/Icosphere Base Color.png" id="12_x1f50"]
+[ext_resource type="AudioStream" uid="uid://duytpjtupvk3s" path="res://sounds/dialogue/final/Teller_soundsVoice5.mp3" id="13_3qd5u"]
+[ext_resource type="AudioStream" uid="uid://da7ypnyucrkv3" path="res://sounds/dialogue/final/Teller_soundsVoice6.mp3" id="14_jv07b"]
+[ext_resource type="AudioStream" uid="uid://qh508c12dlwx" path="res://sounds/dialogue/final/Teller_soundsVoice7.mp3" id="15_ytlra"]
+[ext_resource type="AudioStream" uid="uid://ckwhd5kbqirvt" path="res://sounds/dialogue/final/Teller_soundsVoice8.mp3" id="16_ilrfr"]
+[ext_resource type="AudioStream" uid="uid://dg5g3l28c7etb" path="res://sounds/dialogue/final/Teller_soundsVoice9.mp3" id="17_um7es"]
+[ext_resource type="AudioStream" uid="uid://ca6l3ktlkedmu" path="res://sounds/dialogue/final/Teller_soundsVoice10.mp3" id="18_swj4b"]
+[ext_resource type="AudioStream" uid="uid://dibc2ux7e4sgh" path="res://sounds/dialogue/final/Teller_soundsVoice11.mp3" id="19_2kie3"]
+[ext_resource type="AudioStream" uid="uid://bd72vxf583p30" path="res://sounds/dialogue/final/Teller_soundsVoice12.mp3" id="20_wxjrk"]
+[ext_resource type="AudioStream" uid="uid://cbm8cx5wl0cdo" path="res://sounds/dialogue/final/Teller_soundsVoice13.mp3" id="21_djjum"]
+[ext_resource type="AudioStream" uid="uid://i5arwbay50go" path="res://sounds/dialogue/final/Teller_soundsVoice14.mp3" id="22_7kcdr"]
+[ext_resource type="AudioStream" uid="uid://b8swddhwwj6fn" path="res://sounds/dialogue/final/Teller_soundsVoice15.mp3" id="23_gvkce"]
+[ext_resource type="AudioStream" uid="uid://251gynph67xa" path="res://sounds/dialogue/final/Teller_soundsVoice.mp3" id="24_gian7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sbx70"]
+streams_count = 15
+stream_0/stream = ExtResource("9_p8843")
+stream_1/stream = ExtResource("10_ytsxm")
+stream_2/stream = ExtResource("11_gfsb6")
+stream_3/stream = ExtResource("12_jl5kl")
+stream_4/stream = ExtResource("13_3qd5u")
+stream_5/stream = ExtResource("14_jv07b")
+stream_6/stream = ExtResource("15_ytlra")
+stream_7/stream = ExtResource("16_ilrfr")
+stream_8/stream = ExtResource("17_um7es")
+stream_9/stream = ExtResource("18_swj4b")
+stream_10/stream = ExtResource("19_2kie3")
+stream_11/stream = ExtResource("20_wxjrk")
+stream_12/stream = ExtResource("21_djjum")
+stream_13/stream = ExtResource("22_7kcdr")
+stream_14/stream = ExtResource("23_gvkce")
 
 [sub_resource type="Environment" id="Environment_iec8p"]
 background_mode = 1
 background_color = Color(0.502072, 0.418853, 0.21473, 1)
 volumetric_fog_enabled = true
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ueq63"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51cfs"]
+albedo_texture = ExtResource("12_x1f50")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gi35s"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_k4bl8"]
+radius = 1.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w77wi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_6a4wy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_dcq6s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_usnmg")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}]
+[sub_resource type="SphereShape3D" id="SphereShape3D_gpybd"]
+radius = 0.3
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vvq5v"]
-radius = 0.1
-height = 0.4
+[sub_resource type="Animation" id="Animation_bq47v"]
+resource_name = "directions"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LevelOne/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LevelOne/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_hg11g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LevelOne/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LevelOne/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t76bu"]
+_data = {
+"RESET": SubResource("Animation_hg11g"),
+"directions": SubResource("Animation_bq47v")
+}
 
 [node name="main" type="Node3D"]
 
 [node name="LevelOne" type="Node3D" parent="."]
 script = ExtResource("1_iiwsn")
-modules = Array[PackedScene]([ExtResource("2_65l25"), ExtResource("3_onm2j"), ExtResource("4_ijtvx"), ExtResource("5_04o5p"), ExtResource("6_s87lw")])
-obstacles = Array[PackedScene]([ExtResource("7_u3vcs"), ExtResource("8_8wock")])
+modules = Array[PackedScene]([ExtResource("6_s87lw")])
+obstacles = Array[PackedScene]([ExtResource("7_u3vcs"), ExtResource("8_8wock"), ExtResource("5_63jof"), ExtResource("6_r0ivu"), ExtResource("7_s6dnf"), ExtResource("8_u55i8")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LevelOne"]
+stream = ExtResource("9_k5mf7")
+autoplay = true
+parameters/looping = true
+
+[node name="Timer" type="Timer" parent="LevelOne"]
+
+[node name="Timer2" type="Timer" parent="LevelOne"]
+autostart = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="LevelOne"]
+stream = SubResource("AudioStreamRandomizer_sbx70")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="LevelOne"]
+stream = ExtResource("24_gian7")
+
+[node name="Label" type="Label" parent="LevelOne"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.5
+offset_top = -44.0
+offset_right = 391.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Left Click to stick to Walls"
+
+[node name="Label2" type="Label" parent="LevelOne"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -553.0
+offset_top = -44.0
+offset_right = 553.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Space to break through  green walls"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_iec8p")
@@ -60,34 +186,35 @@ slide_on_ceiling = false
 script = ExtResource("6_lhryy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0)
-visible = false
-material_override = ExtResource("6_8a4s5")
-mesh = SubResource("CapsuleMesh_ueq63")
+transform = Transform3D(-1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0, 0, 0)
+mesh = ExtResource("11_wuro8")
+surface_material_override/0 = SubResource("StandardMaterial3D_51cfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.03, 0, 0, 0, -1.31134e-09, -0.03, 0, 0.03, -1.31134e-09, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_gi35s")
+shape = SubResource("SphereShape3D_k4bl8")
 
 [node name="DeathSensor" type="RayCast3D" parent="Player"]
 transform = Transform3D(9.55345e-17, 2.18557e-09, 0.05, 0.05, -2.18557e-09, -1.78671e-22, 2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
 debug_shape_custom_color = Color(0.509804, 0, 0, 1)
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-visible = false
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_w77wi")
-animation = &"new_animation"
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.246801)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.03, 0, 0, 0, -1.31134e-09, -0.03, 0, 0.03, -1.31134e-09, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_vvq5v")
+shape = SubResource("SphereShape3D_gpybd")
 disabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 1.22603, -0.628467)
 shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Player")
+libraries = {
+"": SubResource("AnimationLibrary_t76bu")
+}
+
+[connection signal="timeout" from="LevelOne/Timer" to="LevelOne" method="_on_Timer_timeout"]
+[connection signal="timeout" from="LevelOne/Timer2" to="LevelOne" method="_on_delay_Timer"]
