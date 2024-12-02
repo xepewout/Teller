@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://j1tgk7xp3drd" path="res://modules/module.tscn" id="6_s87lw"]
 [ext_resource type="PackedScene" uid="uid://u7y35a8yknwh" path="res://obstacles/obstacle5.tscn" id="7_s6dnf"]
 [ext_resource type="PackedScene" uid="uid://ddr3jxrdm660f" path="res://obstacles/obstacle.tscn" id="7_u3vcs"]
-[ext_resource type="PackedScene" uid="uid://d2ikp58hh2a0c" path="res://obstacles/obstacle2.tscn" id="8_8wock"]
 [ext_resource type="PackedScene" uid="uid://chpvp5y6jpa7n" path="res://obstacles/obstacle6.tscn" id="8_u55i8"]
 [ext_resource type="AudioStream" uid="uid://cou8u8nimmbdh" path="res://sounds/music/11.29.24.mp3" id="9_k5mf7"]
 [ext_resource type="AudioStream" uid="uid://2g463scsntof" path="res://sounds/dialogue/final/Teller_soundsVoice1.mp3" id="9_p8843"]
+[ext_resource type="PackedScene" uid="uid://bn2ckdbvms780" path="res://obstacles/obstacle7.tscn" id="9_uensl"]
 [ext_resource type="AudioStream" uid="uid://4ykerbw3tvtd" path="res://sounds/dialogue/final/Teller_soundsVoice2.mp3" id="10_ytsxm"]
 [ext_resource type="AudioStream" uid="uid://dg8rtleikgd0o" path="res://sounds/dialogue/final/Teller_soundsVoice3.mp3" id="11_gfsb6"]
 [ext_resource type="ArrayMesh" uid="uid://8uym80mdvf4a" path="res://models/Player1.obj" id="11_wuro8"]
@@ -61,6 +61,33 @@ radius = 1.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_gpybd"]
 radius = 0.3
 
+[sub_resource type="Animation" id="Animation_hg11g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LevelOne/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LevelOne/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_bq47v"]
 resource_name = "directions"
 length = 5.0
@@ -89,33 +116,6 @@ tracks/1/keys = {
 "values": [false, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_hg11g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../LevelOne/Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../LevelOne/Label2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t76bu"]
 _data = {
 "RESET": SubResource("Animation_hg11g"),
@@ -127,7 +127,7 @@ _data = {
 [node name="LevelOne" type="Node3D" parent="."]
 script = ExtResource("1_iiwsn")
 modules = Array[PackedScene]([ExtResource("6_s87lw")])
-obstacles = Array[PackedScene]([ExtResource("7_u3vcs"), ExtResource("8_8wock"), ExtResource("5_63jof"), ExtResource("6_r0ivu"), ExtResource("7_s6dnf"), ExtResource("8_u55i8")])
+obstacles = Array[PackedScene]([ExtResource("7_u3vcs"), ExtResource("5_63jof"), ExtResource("6_r0ivu"), ExtResource("7_s6dnf"), ExtResource("8_u55i8"), ExtResource("9_uensl")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LevelOne"]
 stream = ExtResource("9_k5mf7")
@@ -207,8 +207,9 @@ shape = SubResource("SphereShape3D_gpybd")
 disabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 1.22603, -0.628467)
-shadow_enabled = true
+transform = Transform3D(1.29806e-07, 1, 1.51808e-08, -0.173648, 7.5904e-09, 0.984808, 0.984808, -1.3047e-07, 0.173648, 0, 1.22603, -0.628467)
+directional_shadow_mode = 0
+sky_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Player")

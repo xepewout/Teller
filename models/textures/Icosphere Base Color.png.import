@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1yb4cvyjo0ip"
 path.s3tc="res://.godot/imported/Icosphere Base Color.png-303a849484eb681ae9f468903915bf8f.s3tc.ctex"
+path.etc2="res://.godot/imported/Icosphere Base Color.png-303a849484eb681ae9f468903915bf8f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/textures/Icosphere Base Color.png"
-dest_files=["res://.godot/imported/Icosphere Base Color.png-303a849484eb681ae9f468903915bf8f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Icosphere Base Color.png-303a849484eb681ae9f468903915bf8f.s3tc.ctex", "res://.godot/imported/Icosphere Base Color.png-303a849484eb681ae9f468903915bf8f.etc2.ctex"]
 
 [params]
 

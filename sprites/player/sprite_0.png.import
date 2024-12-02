@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://coby0wvsgiano"
 path.s3tc="res://.godot/imported/sprite_0.png-be562d256db6fe738b280892a6869a84.s3tc.ctex"
+path.etc2="res://.godot/imported/sprite_0.png-be562d256db6fe738b280892a6869a84.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprites/player/sprite_0.png"
-dest_files=["res://.godot/imported/sprite_0.png-be562d256db6fe738b280892a6869a84.s3tc.ctex"]
+dest_files=["res://.godot/imported/sprite_0.png-be562d256db6fe738b280892a6869a84.s3tc.ctex", "res://.godot/imported/sprite_0.png-be562d256db6fe738b280892a6869a84.etc2.ctex"]
 
 [params]
 
