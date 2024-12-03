@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c6poq5api1b1h"]
+[gd_scene load_steps=40 format=3 uid="uid://c6poq5api1b1h"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_iiwsn"]
 [ext_resource type="PackedScene" uid="uid://pumw77mv2iav" path="res://obstacles/obstacle3.tscn" id="5_63jof"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://i5arwbay50go" path="res://sounds/dialogue/final/Teller_soundsVoice14.mp3" id="22_7kcdr"]
 [ext_resource type="AudioStream" uid="uid://b8swddhwwj6fn" path="res://sounds/dialogue/final/Teller_soundsVoice15.mp3" id="23_gvkce"]
 [ext_resource type="AudioStream" uid="uid://251gynph67xa" path="res://sounds/dialogue/final/Teller_soundsVoice.mp3" id="24_gian7"]
+[ext_resource type="Texture2D" uid="uid://bcif6oii4utie" path="res://models/textures/human-skin-freckled_albedo.png" id="26_jxncb"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sbx70"]
 streams_count = 15
@@ -47,10 +48,16 @@ stream_12/stream = ExtResource("21_djjum")
 stream_13/stream = ExtResource("22_7kcdr")
 stream_14/stream = ExtResource("23_gvkce")
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lnqpq"]
+panorama = ExtResource("26_jxncb")
+
+[sub_resource type="Sky" id="Sky_bbviy"]
+sky_material = SubResource("PanoramaSkyMaterial_lnqpq")
+
 [sub_resource type="Environment" id="Environment_iec8p"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.502072, 0.418853, 0.21473, 1)
-volumetric_fog_enabled = true
+sky = SubResource("Sky_bbviy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51cfs"]
 albedo_texture = ExtResource("12_x1f50")
@@ -186,16 +193,16 @@ slide_on_ceiling = false
 script = ExtResource("6_lhryy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(-1.31134e-09, 0, -0.03, 0, 0.03, 0, 0.03, 0, -1.31134e-09, 0, 0, 0)
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, 0, 0, 0)
 mesh = ExtResource("11_wuro8")
 surface_material_override/0 = SubResource("StandardMaterial3D_51cfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.03, 0, 0, 0, -1.31134e-09, -0.03, 0, 0.03, -1.31134e-09, 0, 0, 0)
+transform = Transform3D(0.02, 0, 0, 0, -8.74228e-10, -0.02, 0, 0.02, -8.74228e-10, 0, 0, 0)
 shape = SubResource("SphereShape3D_k4bl8")
 
 [node name="DeathSensor" type="RayCast3D" parent="Player"]
-transform = Transform3D(9.55345e-17, 2.18557e-09, 0.05, 0.05, -2.18557e-09, -1.78671e-22, 2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
+transform = Transform3D(1.91069e-16, 4.37114e-09, 0.1, 0.1, -4.37114e-09, -3.57342e-22, 4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0)
 debug_shape_custom_color = Color(0.509804, 0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]

@@ -84,3 +84,4 @@ func _physics_process(delta: float) -> void:
 
 func death():
 	print(get_tree().reload_current_scene())
+	Ui.deathCount+=1

@@ -19,9 +19,12 @@ func _ready() -> void:
 	delayTimer.start(5)
 	for n in amnt:
 		spawnModule(n*offset)
-		#spawnObstacle(n*offset)
-	audio_stream_player_3.playing = true
-	animation_player.play("directions")
+	if Ui.deathCount < 3:
+		audio_stream_player_3.playing = true
+		animation_player.play("directions")
+		
+	else:
+		timer.start(.5)
 
 func _on_delay_Timer():
 	if obstacleCount == 0:
@@ -34,8 +37,9 @@ func _on_Timer_timeout():
 		obstacleCount+=1
 		print (obstacleCount)
 	else:
-		levelComplete()
-	print("timer")
+		if timepassed > 120:
+			print(timepassed)
+			levelComplete()
 
 
 var initObs = 0
@@ -56,10 +60,10 @@ func spawnObstacle(n):
 	instance.position.z = (timepassed * -1)
 	add_child(instance)
 
-	
 func levelComplete():
 	queue_free()
 	var main = LEVEL_2.instantiate()
 	get_tree().root.add_child(main)
 	get_tree().current_scene = main
 	print("done!")
+	
