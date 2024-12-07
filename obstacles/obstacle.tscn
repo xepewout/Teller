@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_pjees"]
 [ext_resource type="Script" path="res://obstacles/wall.gd" id="2_kapwm"]
-[ext_resource type="Material" uid="uid://bijm7n2bbco7g" path="res://materials/green.tres" id="2_x1puy"]
+[ext_resource type="Material" path="res://materials/green.tres" id="2_x1puy"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_emxbt"]
 size = Vector2(0.5, 0.5)
