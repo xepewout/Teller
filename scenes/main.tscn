@@ -30,44 +30,6 @@
 [ext_resource type="AudioStream" uid="uid://251gynph67xa" path="res://sounds/dialogue/final/Teller_soundsVoice.mp3" id="24_gian7"]
 [ext_resource type="Texture2D" uid="uid://bcif6oii4utie" path="res://models/textures/human-skin-freckled_albedo.png" id="26_jxncb"]
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sbx70"]
-streams_count = 15
-stream_0/stream = ExtResource("9_p8843")
-stream_1/stream = ExtResource("10_ytsxm")
-stream_2/stream = ExtResource("11_gfsb6")
-stream_3/stream = ExtResource("12_jl5kl")
-stream_4/stream = ExtResource("13_3qd5u")
-stream_5/stream = ExtResource("14_jv07b")
-stream_6/stream = ExtResource("15_ytlra")
-stream_7/stream = ExtResource("16_ilrfr")
-stream_8/stream = ExtResource("17_um7es")
-stream_9/stream = ExtResource("18_swj4b")
-stream_10/stream = ExtResource("19_2kie3")
-stream_11/stream = ExtResource("20_wxjrk")
-stream_12/stream = ExtResource("21_djjum")
-stream_13/stream = ExtResource("22_7kcdr")
-stream_14/stream = ExtResource("23_gvkce")
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lnqpq"]
-panorama = ExtResource("26_jxncb")
-
-[sub_resource type="Sky" id="Sky_bbviy"]
-sky_material = SubResource("PanoramaSkyMaterial_lnqpq")
-
-[sub_resource type="Environment" id="Environment_iec8p"]
-background_mode = 2
-background_color = Color(0.502072, 0.418853, 0.21473, 1)
-sky = SubResource("Sky_bbviy")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51cfs"]
-albedo_texture = ExtResource("12_x1f50")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_k4bl8"]
-radius = 1.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_gpybd"]
-radius = 0.3
-
 [sub_resource type="Animation" id="Animation_hg11g"]
 length = 0.001
 tracks/0/type = "value"
@@ -129,12 +91,56 @@ _data = {
 "directions": SubResource("Animation_bq47v")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sbx70"]
+streams_count = 15
+stream_0/stream = ExtResource("9_p8843")
+stream_1/stream = ExtResource("10_ytsxm")
+stream_2/stream = ExtResource("11_gfsb6")
+stream_3/stream = ExtResource("12_jl5kl")
+stream_4/stream = ExtResource("13_3qd5u")
+stream_5/stream = ExtResource("14_jv07b")
+stream_6/stream = ExtResource("15_ytlra")
+stream_7/stream = ExtResource("16_ilrfr")
+stream_8/stream = ExtResource("17_um7es")
+stream_9/stream = ExtResource("18_swj4b")
+stream_10/stream = ExtResource("19_2kie3")
+stream_11/stream = ExtResource("20_wxjrk")
+stream_12/stream = ExtResource("21_djjum")
+stream_13/stream = ExtResource("22_7kcdr")
+stream_14/stream = ExtResource("23_gvkce")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lnqpq"]
+panorama = ExtResource("26_jxncb")
+
+[sub_resource type="Sky" id="Sky_bbviy"]
+sky_material = SubResource("PanoramaSkyMaterial_lnqpq")
+
+[sub_resource type="Environment" id="Environment_iec8p"]
+background_mode = 2
+background_color = Color(0.502072, 0.418853, 0.21473, 1)
+sky = SubResource("Sky_bbviy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51cfs"]
+albedo_texture = ExtResource("12_x1f50")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k4bl8"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gpybd"]
+radius = 0.3
+
 [node name="main" type="Node3D"]
 
 [node name="LevelOne" type="Node3D" parent="."]
 script = ExtResource("1_iiwsn")
 modules = Array[PackedScene]([ExtResource("6_s87lw")])
 obstacles = Array[PackedScene]([ExtResource("7_u3vcs"), ExtResource("5_63jof"), ExtResource("6_r0ivu"), ExtResource("7_s6dnf"), ExtResource("8_u55i8"), ExtResource("9_uensl")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelOne"]
+root_node = NodePath("../../Player")
+libraries = {
+"": SubResource("AnimationLibrary_t76bu")
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LevelOne"]
 stream = ExtResource("9_k5mf7")
@@ -217,12 +223,6 @@ disabled = true
 transform = Transform3D(1.29806e-07, 1, 1.51808e-08, -0.173648, 7.5904e-09, 0.984808, 0.984808, -1.3047e-07, 0.173648, 0, 1.22603, -0.628467)
 directional_shadow_mode = 0
 sky_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Player")
-libraries = {
-"": SubResource("AnimationLibrary_t76bu")
-}
 
 [connection signal="timeout" from="LevelOne/Timer" to="LevelOne" method="_on_Timer_timeout"]
 [connection signal="timeout" from="LevelOne/Timer2" to="LevelOne" method="_on_delay_Timer"]

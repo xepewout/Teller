@@ -11,4 +11,3 @@ func _process(delta: float) -> void:
 		var main = MAIN.instantiate()
 		get_tree().root.add_child(main)
 		get_tree().current_scene = main
-		
