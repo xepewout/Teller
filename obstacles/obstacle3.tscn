@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://pumw77mv2iav"]
+[gd_scene load_steps=7 format=3 uid="uid://pumw77mv2iav"]
 
 [ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_hfh1r"]
 [ext_resource type="Script" path="res://obstacles/wall.gd" id="2_8xf56"]
-[ext_resource type="Material" uid="uid://bbi101762vk45" path="res://materials/red.tres" id="2_csb6i"]
+[ext_resource type="Texture2D" uid="uid://6r77ioq7alt8" path="res://materials/orangeishFlesh.jpg" id="3_w5ew0"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_cevjn"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_anobr"]
+albedo_texture = ExtResource("3_w5ew0")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dwkn4"]
 data = PackedVector3Array(0, 0.05, 0.05, 0.05, -0.05, 0.05, -0.05, -0.05, 0.05, 0, 0.05, -0.05, -0.05, -0.05, -0.05, 0.05, -0.05, -0.05, 0, 0.05, 0.05, 0, 0.05, -0.05, 0.05, -0.05, 0.05, 0, 0.05, -0.05, 0.05, -0.05, -0.05, 0.05, -0.05, 0.05, 0, 0.05, -0.05, 0, 0.05, 0.05, -0.05, -0.05, -0.05, 0, 0.05, 0.05, -0.05, -0.05, 0.05, -0.05, -0.05, -0.05, -0.05, -0.05, 0.05, 0.05, -0.05, 0.05, -0.05, -0.05, -0.05, 0.05, -0.05, 0.05, 0.05, -0.05, -0.05, -0.05, -0.05, -0.05)
@@ -19,7 +22,7 @@ script = ExtResource("2_8xf56")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.00511084, -0.014553, 0.148673)
 mesh = SubResource("PrismMesh_cevjn")
-surface_material_override/0 = ExtResource("2_csb6i")
+surface_material_override/0 = SubResource("StandardMaterial3D_anobr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.00511084, -0.014553, 0.148673)

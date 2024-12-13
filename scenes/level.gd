@@ -5,7 +5,7 @@ extends Node3D
 @export var obstacles: Array[PackedScene] = []
 
 #vars
-var amnt = 10
+var amnt = 8
 var rng = RandomNumberGenerator.new()
 var offset = 1.5
 var timepassed = 0
@@ -24,7 +24,7 @@ const LEVEL_2 = preload("res://scenes/Level2.tscn")
 
 func _ready() -> void:
 	delayTimer.start(3)
-	for n in amnt:
+	for n in 3:
 		spawnModule(n)
 	if Ui.deathCount < 3:
 		audio_stream_player_3.playing = true
@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 
 func spawnModule(n):
 	var instance = modules[0].instantiate()
-	instance.position.z = n
+	instance.position.z = (n * -2)
 	add_child(instance)	
 
 func spawnObstacle(n):

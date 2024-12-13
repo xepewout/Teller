@@ -7,5 +7,5 @@ var speed = 1
 func _process(delta: float) -> void:
 	position.z += speed*delta
 	if position.z > 2:
-		level.spawnModule(position.z+(level.amnt) * -1)
+		level.spawnModule(2)
 		queue_free()

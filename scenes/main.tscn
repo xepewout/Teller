@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://i5arwbay50go" path="res://sounds/dialogue/final/Teller_soundsVoice14.mp3" id="22_7kcdr"]
 [ext_resource type="AudioStream" uid="uid://b8swddhwwj6fn" path="res://sounds/dialogue/final/Teller_soundsVoice15.mp3" id="23_gvkce"]
 [ext_resource type="AudioStream" uid="uid://251gynph67xa" path="res://sounds/dialogue/final/Teller_soundsVoice.mp3" id="24_gian7"]
-[ext_resource type="Texture2D" uid="uid://bcif6oii4utie" path="res://models/textures/human-skin-freckled_albedo.png" id="26_jxncb"]
+[ext_resource type="Texture2D" uid="uid://fhlyqk7ogg18" path="res://materials/flesh.jpg" id="26_ja3w8"]
 
 [sub_resource type="Animation" id="Animation_hg11g"]
 length = 0.001
@@ -110,7 +110,7 @@ stream_13/stream = ExtResource("22_7kcdr")
 stream_14/stream = ExtResource("23_gvkce")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lnqpq"]
-panorama = ExtResource("26_jxncb")
+panorama = ExtResource("26_ja3w8")
 
 [sub_resource type="Sky" id="Sky_bbviy"]
 sky_material = SubResource("PanoramaSkyMaterial_lnqpq")

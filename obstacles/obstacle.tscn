@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddr3jxrdm660f"]
+[gd_scene load_steps=7 format=3 uid="uid://ddr3jxrdm660f"]
 
 [ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_pjees"]
 [ext_resource type="Script" path="res://obstacles/wall.gd" id="2_kapwm"]
-[ext_resource type="Material" path="res://materials/green.tres" id="2_x1puy"]
+[ext_resource type="Texture2D" uid="uid://fhlyqk7ogg18" path="res://materials/flesh.jpg" id="3_par2y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a47u"]
+albedo_texture = ExtResource("3_par2y")
 
 [sub_resource type="QuadMesh" id="QuadMesh_emxbt"]
 size = Vector2(0.5, 0.5)
@@ -17,8 +20,8 @@ script = ExtResource("1_pjees")
 script = ExtResource("2_kapwm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+material_override = SubResource("StandardMaterial3D_6a47u")
 mesh = SubResource("QuadMesh_emxbt")
-surface_material_override/0 = ExtResource("2_x1puy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
 shape = SubResource("ConcavePolygonShape3D_nnf63")
